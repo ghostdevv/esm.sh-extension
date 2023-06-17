@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "ES2015",
+        "module": "esnext",
+        "lib": ["DOM", "esnext"]
+    },
+    "include": ["src/**/*.ts"],
+}
