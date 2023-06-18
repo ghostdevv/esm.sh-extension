@@ -20,6 +20,5 @@
                 "./dist/content.js"
             ]
         }
-    ],
-    "action": {}
+    ]
 }
