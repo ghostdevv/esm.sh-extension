@@ -1,5 +1,5 @@
-import { valid } from 'semver';
-import logo from './logo';
+import logo from './lib/logo';
+import { getImportStatement, getVersion } from './lib/utils';
 
 function handleClick(event: MouseEvent, node: HTMLAnchorElement) {
     event.preventDefault();
@@ -12,22 +12,15 @@ function handleClick(event: MouseEvent, node: HTMLAnchorElement) {
     }
 
     const version = getVersion();
-    const importUrl = `https://esm.sh/${packageName}${version ? `@${version}` : ''}`;
+    const importStatement = getImportStatement(packageName, version);
 
-    navigator.clipboard.writeText(`import {} from '${importUrl}'`);
+    navigator.clipboard.writeText(importStatement);
 
     node.innerHTML = `${logo}\n<strong>Copied!</strong>`;
 
     setTimeout(() => {
         node.innerHTML = `${logo}\n<strong>Copy</strong> esm.sh import`;
     }, 1000);
-}
-
-function getVersion() {
-    const textNodes = document.querySelectorAll('p');
-    const version = Array.from(textNodes).find((t) => valid(t.textContent));
-
-    return version?.textContent ?? null;
 }
 
 function inject() {
