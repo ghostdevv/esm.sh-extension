@@ -8,7 +8,7 @@ This extension adds a "Copy esm.sh import" button on npm package pages! It will 
 
 TODO add links from stores
 
-## Build from source
+## Develop
 
 Requirements:
     - Node 16+
@@ -16,6 +16,4 @@ Requirements:
 
 1. `npm install` or `pnpm install`
 2. `npm run build`
-
-The built TypeScript files are in `extension/dist`
-
+3. Load extension into chrome/firefox from `extension/manifest.json`
