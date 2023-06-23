@@ -6,7 +6,8 @@ This extension adds a "Copy esm.sh import" button on npm package pages! It will 
 
 ## Installation
 
-[![get-firefox-extension](https://i.imgur.com/ToueNQt.png)](https://addons.mozilla.org/en-GB/firefox/addon/esm-sh/)
+[![get-chrome-extension](./.github/chrome-extension.png)](https://chrome.google.com/webstore/detail/esmsh-extension/jlpgfgknnnglpcpkocpfpdicpdpdlnme)
+[![get-firefox-extension](./.github/firefox-extension.png)](https://addons.mozilla.org/en-GB/firefox/addon/esm-sh/)
 
 ## Develop
 
