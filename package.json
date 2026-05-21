@@ -4,6 +4,7 @@
 	"scripts": {
 		"build": "esbuild --bundle src/content.ts --outdir=extension/dist --minify --platform=browser --target=es2015"
 	},
+	"packageManager": "pnpm@11.2.2",
 	"devDependencies": {
 		"@types/chrome": "^0.0.237",
 		"@types/semver": "^7.5.0",

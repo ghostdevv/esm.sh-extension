@@ -15,6 +15,6 @@ Requirements:
     - Node 16+
     - npm or pnpm
 
-1. `npm install` or `pnpm install`
-2. `npm run build`
+1. `pnpm install`
+2. `pnpm build`
 3. Load extension into chrome/firefox from `extension/manifest.json`
