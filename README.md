@@ -2,7 +2,7 @@
 
 This extension adds a "Copy esm.sh import" button on npm package pages! It will automatically detect the package name and version.
 
-![esm.sh extension button](https://i.imgur.com/hmM476W.png)
+![esm.sh extension button](./.github/demo.png)
 
 ## Installation
 
