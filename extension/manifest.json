@@ -1,5 +1,7 @@
 {
     "name": "esm.sh extension",
+    "description": "Add a \"Copy esm.sh import\" button on npm package pages",
+    "homepage_url": "https://github.com/ghostdevv/esm.sh-extension",
     "version": "1.0.1",
     "manifest_version": 3,
     "icons": {
