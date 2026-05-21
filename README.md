@@ -11,9 +11,7 @@ This extension adds a "Copy esm.sh import" button on npm package pages! It will 
 
 ## Develop
 
-Requirements:
-    - Node 16+
-    - npm or pnpm
+Requirements: - Node 16+ - npm or pnpm
 
 1. `pnpm install`
 2. `pnpm build`

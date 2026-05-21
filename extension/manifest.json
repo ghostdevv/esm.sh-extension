@@ -12,13 +12,8 @@
     "content_scripts": [
         {
             "run_at": "document_idle",
-            "matches": [
-                "*://npmjs.com/package/*",
-                "*://www.npmjs.com/package/*"
-            ],
-            "js": [
-                "./dist/content.js"
-            ]
+            "matches": ["*://npmjs.com/package/*", "*://www.npmjs.com/package/*"],
+            "js": ["./dist/content.js"]
         }
     ]
 }

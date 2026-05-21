@@ -17,6 +17,9 @@ importers:
       esbuild:
         specifier: ^0.18.4
         version: 0.18.20
+      prettier:
+        specifier: ^3.8.3
+        version: 3.8.3
       semver:
         specifier: ^7.5.2
         version: 7.8.0
@@ -175,6 +178,11 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
+  prettier@3.8.3:
+    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   semver@7.8.0:
     resolution: {integrity: sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA==}
     engines: {node: '>=10'}
@@ -287,5 +295,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.18.20
       '@esbuild/win32-ia32': 0.18.20
       '@esbuild/win32-x64': 0.18.20
+
+  prettier@3.8.3: {}
 
   semver@7.8.0: {}

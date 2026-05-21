@@ -6,5 +6,5 @@
         "module": "esnext",
         "lib": ["DOM", "esnext"]
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts"]
 }
