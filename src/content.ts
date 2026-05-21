@@ -1,5 +1,5 @@
-import logo from './lib/logo';
 import { getImportStatement, getVersion } from './lib/utils';
+import logo from './lib/logo';
 
 function handleClick(event: MouseEvent, node: HTMLAnchorElement) {
     event.preventDefault();
@@ -35,26 +35,33 @@ const STYLES = `
     }
 `;
 
-function inject() {
-    const anchors = document.querySelectorAll('a');
-    const report = Array.from(anchors).find((a) => a.textContent == 'Explore dependencies');
-
-    if (!report) {
-        console.error('Unable to find explore dependencies anchor tag');
-        return;
+function inject(dummy: HTMLAnchorElement) {
+    if (!document.querySelector('a.esm-sh')) {
+        console.log('injecting button');
+        const node = dummy.cloneNode(true) as HTMLAnchorElement;
+        node.innerHTML = `${logo}\n<strong>Copy</strong> esm.sh import`;
+        node.classList.add('esm-sh');
+        node.href = '#';
+        node.addEventListener('click', (event) => handleClick(event, node));
+        dummy.parentElement!.appendChild(node);
     }
 
-    const node = report.cloneNode(true) as HTMLAnchorElement;
-    node.addEventListener('click', (event) => handleClick(event, node));
-    node.innerHTML = `${logo}\n<strong>Copy</strong> esm.sh import`;
-    node.classList.add('esm-sh');
-    node.href = '#';
-
-    const styles = document.createElement('style');
-    styles.innerHTML = STYLES;
-
-    report.parentNode?.appendChild(node);
-    document.body.appendChild(styles);
+    if (!document.querySelector('style[id="esm-sh-styles"]')) {
+        console.log('injecting styles');
+        const styles = document.createElement('style');
+        styles.innerHTML = STYLES;
+        styles.id = 'esm-sh-styles';
+        document.body.appendChild(styles);
+    }
 }
 
-inject();
+const anchors = document.querySelectorAll('a');
+const report = Array.from(anchors).find((a) => a.textContent == 'Explore dependencies');
+
+if (!report || !report.parentElement) {
+    console.error('Unable to find explore dependencies anchor tag');
+} else {
+    inject(report);
+    const observer = new MutationObserver(() => inject(report));
+    observer.observe(report.parentElement, { childList: true });
+}
