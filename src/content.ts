@@ -23,26 +23,38 @@ function handleClick(event: MouseEvent, node: HTMLAnchorElement) {
     }, 1000);
 }
 
+const STYLES = `
+    [data-color-mode="light"] .esm-sh {
+        background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.13) 0%, rgba(0, 236, 255, 0.08) 100%) !important;
+        border-color: #00ecff;
+        color: #08a9b6;
+    }
+
+    .esm-sh:not(:hover) {
+        background-color: #1e3436 !important;
+    }
+`;
+
 function inject() {
     const anchors = document.querySelectorAll('a');
-    const runkit = Array.from(anchors).find((a) => a.textContent == 'Try on RunKit');
+    const report = Array.from(anchors).find((a) => a.textContent == 'Explore dependencies');
 
-    if (!runkit) {
-        console.error('Unable to find RunKit a tag');
+    if (!report) {
+        console.error('Unable to find explore dependencies anchor tag');
         return;
     }
 
-    const node = runkit.cloneNode(true) as HTMLAnchorElement;
-
+    const node = report.cloneNode(true) as HTMLAnchorElement;
+    node.addEventListener('click', (event) => handleClick(event, node));
     node.innerHTML = `${logo}\n<strong>Copy</strong> esm.sh import`;
-    node.style.backgroundImage =
-        'linear-gradient(-180deg, rgba(255, 255, 255, 0.13) 0%, rgba(0, 236, 255, 0.1) 100%);';
-    node.style.borderColor = '#00ecff';
+    node.classList.add('esm-sh');
     node.href = '#';
 
-    node.addEventListener('click', (event) => handleClick(event, node));
+    const styles = document.createElement('style');
+    styles.innerHTML = STYLES;
 
-    runkit.parentNode?.appendChild(node);
+    report.parentNode?.appendChild(node);
+    document.body.appendChild(styles);
 }
 
 inject();
