@@ -17,5 +17,10 @@
             "matches": ["*://npmjs.com/package/*", "*://www.npmjs.com/package/*"],
             "js": ["./dist/content.js"]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{420fe7c2-79ec-4ee0-bd71-26808cfff90a}"
+        }
+    }
 }
